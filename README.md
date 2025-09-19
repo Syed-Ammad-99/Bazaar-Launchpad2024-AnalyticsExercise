@@ -6,13 +6,12 @@ This task demonstrates SQL querying, analytical thinking, and data visualization
 - [Objective](#objective)
 - [Dataset Description](#dataset-description)
 - [Tasks](#tasks)
-- [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
-- [Tasks: 2. Analytical Questions](#Tasks:-2.-Analytical-Questions)
-- [Tasks: 3. Data Visualization](#Tasks:-3.-Data-Visualization)
-- [Task 4. Insights and Recommendations ](#Task-4.-Insights-andRecommendations )
-- [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
-  - [Mockup](#mockup)
-  - [Tools](#tools)
+  - [Data Exploration](#Data-Exploration)
+  - [Analytical Questions](#Analytical-Questions)
+  - [Data Visualization](#Data-Visualization)
+  - [Insights and Recommendations ](#Insights-andRecommendations )
+  - [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
+- [Tools](#tools)
 - [Development](#development)
   - [Pseudocode](#pseudocode)
   - [Data Exploration](#data-exploration)
@@ -72,7 +71,7 @@ The attacheddataset contains information about sales transactions including orde
  ● Suggest actionable recommendations for the company to optimize sales and improve overall performance.
  ● Consider factors such as warehouse/store performance, customer behavior, and sales trends.
 
-## Tasks: 1. Data Exploration
+## Data Exploration
 
 ### Total number of orders: 
 This query will count the distinct order numbers from the table sample1 to get the total number of orders.
@@ -109,7 +108,7 @@ This query aggregates the total quantity sold for each item, then orders them in
 
 SUM(ordered_quantity) AS total_quantity_sold function calculates the sum of the ordered_quantity column for each item, giving us the total quantity sold for that item and ORDER BY total_quantity_sold DESC function will show the result in descending order to get top 5 items. 
 
-## Tasks: 2. Analytical Questions
+## Analytical Questions
 
 ### Overall discount rate (average discount per item sold): 
 This query calculates the average discount rate across all items sold.
@@ -169,7 +168,7 @@ The result of Subquery 1 (cancelled orders count) is multiplied by 100.0 to conv
 • Alias: 
 The final result is given an alias named “cancellation_percentage”.
 
-## Tasks: 3. Data Visualization
+## Data Visualization
 
 ### Time series plot of sales revenue over time: 
 This visual report shows Time Series Plot of sales revenue over time, specifically for the month of February.
@@ -201,7 +200,7 @@ The visual report shows pie chart that illustrates the distribution of orders by
 • Second Largest: Warehouse ID 2 follows with 18.01% of orders, represented by the light green slice. 
 • Other Warehouses: The remaining warehouses have smaller percentages of the total orders, each represented by different colors and sizes of slices in the pie chart.
 
-## Task 4. Insights and Recommendations 
+## Insights and Recommendations 
 ### Distribution of Orders by Warehouse: 
 
 The data suggests that warehouses ID 3 and ID 2 handle a significant portion of the orders, and strategies could be developed to manage the workload or to increase efficiency in other warehouses.  
