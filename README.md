@@ -79,6 +79,20 @@ This query will count the distinct order numbers from the table sample1 to get t
 
 ![Total order number](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Total%20order%20number.png)
 
+By using COUNT(DISTINCT order_number) This function counts the unique instances of order_number in the table, ensuring that each order is only counted once, even if it appears multiple times.
+
+### Total sales revenue:
+The result of this query will be a single value representing the total sales revenue, excluding cancelled or invalid orders.
+
+![Total sales revenue](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Total%20sales%20revenue.png)
+
+First the WHERE clause filters the data to exclude orders with a status of ‘CANCELLED’ or ‘INVALID’ in table sample1 then SUM(amount_per_unit * ordered_quantity - item_discount) query calculates the total sales revenue by multiplying the amount per unit by the ordered quantity for each item, subtracting any discount, and then summing up these values for all orders. 
+
+
+
+
+
+
 ## Insights and Recommendations 
 
 ### Distribution of Orders by Warehouse: 
