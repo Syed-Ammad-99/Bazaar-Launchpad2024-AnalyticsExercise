@@ -5,32 +5,13 @@ This task demonstrates SQL querying, analytical thinking, and data visualization
 
 - [Objective](#objective)
 - [Dataset Description](#dataset-description)
+- [Tools](#tools)
 - [Tasks](#tasks)
   - [Data Exploration](#Data-Exploration)
   - [Analytical Questions](#Analytical-Questions)
   - [Data Visualization](#Data-Visualization)
   - [Insights and Recommendations ](#Insights-andRecommendations )
-  - [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
-- [Tools](#tools)
-- [Development](#development)
-  - [Pseudocode](#pseudocode)
-  - [Data Exploration](#data-exploration)
-  - [Data Cleaning](#data-cleaning)
-  - [Transform the Data](#transform-the-data)
-  - [Create the SQL View](#create-the-sql-view)
-- [Testing](#testing)
-  - [Data Quality Tests](#data-quality-tests)
-- [Visualization](#visualization)
-  - [Results](#results)
-  - [DAX Measures](#dax-measures)
-- [Analysis](#analysis)
-  - [Findings](#findings)
-  - [Validation](#validation)
-  - [Discovery](#discovery)
-- [Recommendations](#recommendations)
-  - [Potential ROI](#potential-roi)
-  - [Potential Courses of Actions](#potential-courses-of-actions)
-- [Conclusion](#conclusion)
+- [Read more](#read)
 
 ## Objective
 This task demonstrates SQL querying, analytical thinking, and data visualization skills to derive insights and recommendations for improving business performance. We begin with a examination of the some SQL query, followed by an in-depth analysis of the distribution of orders by warehouse and store, and identification of top-selling items.
@@ -70,6 +51,15 @@ The attacheddataset contains information about sales transactions including orde
  ● Basedonyour findings from the data exploration, analytical questions, and visualizations, provide insights into the business performance.
  ● Suggest actionable recommendations for the company to optimize sales and improve overall performance.
  ● Consider factors such as warehouse/store performance, customer behavior, and sales trends.
+
+## Tools
+
+| Tool | Purpose |
+| --- | --- |
+| Excel | Exploring the data |
+| SQL Server | Cleaning, testing, and analyzing the data |
+| Power BI | Visualizing the data via interactive dashboards |
+| GitHub | Hosting the project documentation and version control |
 
 ## Data Exploration
 
@@ -228,4 +218,5 @@ The spike on February 3th could be due to a successful marketing campaign, a sea
 
 The uniformity in low revenue across all stores as depicted in this graph is unusual and only 1 store took responsibility of major part of revenue is alarming. When each store receive order frequently then revenue will be much higher and workload, inventory will also be organized.
 
+#### Read more 
 Read the complete case study, [see here to find it.](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/Launchpad%202024%20CASE%20STUDY.pdf)
