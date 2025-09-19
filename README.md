@@ -77,7 +77,7 @@ This task demonstrates SQL querying, analytical thinking, and data visualization
 ### Total number of orders: 
 This query will count the distinct order numbers from the table sample1 to get the total number of orders.
 
-![Total order number](screenshots/Total order number.png)
+![Total order number](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Total%20order%20number.png)
 
 ## Insights and Recommendations 
 
