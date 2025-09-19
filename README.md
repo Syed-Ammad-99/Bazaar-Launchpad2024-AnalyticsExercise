@@ -7,9 +7,9 @@ This task demonstrates SQL querying, analytical thinking, and data visualization
 - [Dataset Description](#dataset-description)
 - [Tasks](#tasks)
 - [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
-- [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
-- [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
-- [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
+- [Tasks: 2. Analytical Questions](#Tasks:-2.-Analytical-Questions)
+- [Tasks: 3. Data Visualization](#Tasks:-3.-Data-Visualization)
+- [Task 4. Insights and Recommendations ](#Task-4.-Insights-andRecommendations )
 - [Tasks: 1. Data Exploration](#Tasks:-1.-Data-Exploration)
   - [Mockup](#mockup)
   - [Tools](#tools)
@@ -37,7 +37,7 @@ This task demonstrates SQL querying, analytical thinking, and data visualization
 This task demonstrates SQL querying, analytical thinking, and data visualization skills to derive insights and recommendations for improving business performance. We begin with a examination of the some SQL query, followed by an in-depth analysis of the distribution of orders by warehouse and store, and identification of top-selling items.
 
 ## Dataset Description
- The attacheddataset contains information about sales transactions including order date, order number, warehouse ID, store ID, item ID, amount per unit, ordered quantity, item discount, and expected delivery date.
+The attacheddataset contains information about sales transactions including order date, order number, warehouse ID, store ID, item ID, amount per unit, ordered quantity, item discount, and expected delivery date.
  
 ## Tasks:
  
@@ -72,7 +72,7 @@ This task demonstrates SQL querying, analytical thinking, and data visualization
  ● Suggest actionable recommendations for the company to optimize sales and improve overall performance.
  ● Consider factors such as warehouse/store performance, customer behavior, and sales trends.
 
-## Data Exploration
+## Tasks: 1. Data Exploration
 
 ### Total number of orders: 
 This query will count the distinct order numbers from the table sample1 to get the total number of orders.
@@ -88,27 +88,131 @@ The result of this query will be a single value representing the total sales rev
 
 First the WHERE clause filters the data to exclude orders with a status of ‘CANCELLED’ or ‘INVALID’ in table sample1 then SUM(amount_per_unit * ordered_quantity - item_discount) query calculates the total sales revenue by multiplying the amount per unit by the ordered quantity for each item, subtracting any discount, and then summing up these values for all orders. 
 
+### Average order quantity: 
+This query will calculate the average ordered quantity from a table “sample1”. 
 
+![Average order quantity](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Average%20order%20quantity.png)
 
+In this query AVG(ordered_quantity) function calculates the average value of the ordered_quantity column. 
 
+### Distribution of orders by warehouse and store:
+This query groups the transactions by warehouse and store, then counts the number of orders for each combination.
 
+![Distribution of orders by warehouse and store](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Distribution%20of%20orders%20by%20warehouse%20and%20store.png)
 
-## Insights and Recommendations 
+order_warehouse_id AS warehouse this part selects the warehouse ID and renames it as “warehouse” for the output and store_id AS store this selects the store ID and renames it as “store” for the output. GROUP BY order_warehouse_id, store_id this groups the results by warehouse and store ID, so the count of orders is calculated for each unique combination.
 
+### Top selling items: 
+This query aggregates the total quantity sold for each item, then orders them in descending order and selects the top 5 items only. 
+
+![Top selling items](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Top%20selling%20items.png)
+
+SUM(ordered_quantity) AS total_quantity_sold function calculates the sum of the ordered_quantity column for each item, giving us the total quantity sold for that item and ORDER BY total_quantity_sold DESC function will show the result in descending order to get top 5 items. 
+
+## Tasks: 2. Analytical Questions
+
+### Overall discount rate (average discount per item sold): 
+This query calculates the average discount rate across all items sold.
+
+![Overall discount rate](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Overall%20Discount%20Rate%20(Average%20Discount%20per%20Item%20Sold).png)
+
+### Warehouse with the highest average order value: 
+This query calculates the average order value for each warehouse and selects the one with the highest value. 
+
+![Warehouse with the highest average order value](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Warehouse%20with%20the%20Highest%20Average%20Order%20Value.png)
+
+SUM(amount_per_unit * ordered_quantity - item_discount) / COUNT(DISTINCT order_number) AS average_order_value: This part of the query calculates the average order value for each warehouse. It does so by summing the total sales (amount per unit times ordered quantity minus any item discount) 
+and then dividing by the count of distinct orders. WHERE order_status NOT IN (‘CANCELLED’, ‘INVALID’) AND order_warehouse_id IS NOT NULL: The WHERE clause filters out orders that are cancelled or invalid and ensures that the warehouse ID is not null and LIMIT 1: This limits the results to the 
+warehouse with the highest average order value.
+
+### Total revenue generated by each store: 
+This query sums up the revenue for each store.
+
+![Total revenue generated by each store](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Total%20Revenue%20Generated%20by%20Each%20Store.png)
+
+SELECT DISTINCT store_id AS store: This part of the query selects unique store_id values from the sample1 table and renames them as “store” in the output. The DISTINCT keyword ensures that each store is listed only once. GROUP BY store: This groups the results by store_id, which has been renamed to “store”. This is necessary because the SUM function is an aggregate function that requires a GROUP BY clause to summarize data by each unique store. 
+
+### Top 5 customers based on total amount spent: 
+This query identifies the top 5 customers based on the total amount they've spent.
+
+![Top 5 customers based on total amount spent](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Top%205%20customer.png)
+
+SELECT DISTINCT order_number AS customer: This part of the query selects unique order_number values from the sample1 table and renames them as “customer” in the output. The DISTINCT keyword ensures that each customer is listed only once.
+
+### Month-over-month growth rate of sales revenue: 
+This a query that calculates the Month-over-Month (MoM) growth rate of sales revenue.
+
+![Month-over-month growth rate of sales revenue](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/MoM%20growth%20rate%20of%20sales%20revenue.png)
+
+WITH revenue_monthly AS: This CTE revenue_monthly is used to store the result of the subquery for use in the main query. SELECT DATE_TRUNC(‘month’, order_date) AS month: This part truncates the order_date to the first day of the month, effectively grouping data by month. 
+
+The main query then selects from the CTE: 
+• SELECT a.month, a.sales_revenue: This selects the month and sales revenue from the CTE.
+• (a.sales_revenue - LAG(a.sales_revenue, 1) OVER (ORDER BY a.month)) / LAG(a.sales_revenue, 1) OVER (ORDER BY a.month) AS sales_growth_rate: This part calculates the month-over-month growth rate. It subtracts the previous month’s sales revenue (obtained using the LAG function) from the current month’s sales revenue and divides the result by the previous month’s sales revenue. The LAG function is a window function that provides access to a row at a given physical offset that comes before the current row.
+
+Sales Growth Rate: This is the key result of the query. It will show the growth rate of sales revenue 
+compared to the previous month as we only have transaction data of 1 month so sales growth rate can’t 
+be calculated.
+
+### Percentage of canceled orders: 
+The result of this query will be a single value representing the percentage of cancelled orders out of the total number of distinct orders. 
+
+![Percentage of canceled orders](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Percentage%20canceled%20orders.png)
+
+• Subqueries: 
+o Subquery 1: (SELECT COUNT(DISTINCT order_number) FROM sample1 WHERE 
+order_status = 'CANCELLED') this subquery counts the number of cancelled orders. 
+o Subquery 2: (SELECT COUNT(DISTINCT order_number) FROM sample1) this subquery 
+calculates the total count of distinct order numbers from the entire dataset. 
+• Calculation: 
+The result of Subquery 1 (cancelled orders count) is multiplied by 100.0 to convert it to a percentage. The product is then divided by the result of Subquery 2 (total order count) to calculate the cancellation percentage. 
+• Alias: 
+The final result is given an alias named “cancellation_percentage”.
+
+## Tasks: 3. Data Visualization
+
+### Time series plot of sales revenue over time: 
+This visual report shows Time Series Plot of sales revenue over time, specifically for the month of February.
+
+![Time series plot of sales revenue over time](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Time%20series%20plot%20of%20sales%20revenue%20over%20time.png)
+
+• Order Date: The x-axis represents the order date, which spans the entire month of February. 
+• Total Sales: The y-axis indicates the total sales revenue, with values ranging from 0K to 350K. 
+• Sales Trend: The purple line graph depicts the total sales revenue over the course of the month. 
+• Significant Spike: There is a notable spike in sales on February 3th, where the total sales reach approximately 350K. 
+• Post-Spike Trend: Following the spike, there is a sharp decline in sales, after which the sales level off and remain consistently low for the remainder of the month.
+
+## Bar chart showing total revenue by store: 
+The visual report shows bar graph titled “Total revenue by each store.”
+
+![Bar chart showing total revenue by store](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Bar%20chart%20showing%20total%20revenue%20by%20store.png)
+
+• X-Axis (Total Sales): The horizontal axis represents the total sales in currency, ranging from 0K to 350,000K. 
+• Y-Axis (Store IDs): The vertical axis lists various Store IDs. 
+• Sales Figures: Each store’s revenue is represented by a vertical dashed line. All stores have identical sales figures, as indicated by the dashed lines reaching up to approximately 350,000K on the x-axis. 
+• Uniformity in Revenue: The equal length of all dashed lines suggests that every store generated the same amount of revenue during the time period analyzed excluding store ID “5ZjIBaxM8y0r8SrbiLCnbD” its revenue reach between 300K to 350K by single order.
+
+### Pie chart illustrating the distribution of orders by warehouse: 
+The visual report shows pie chart that illustrates the distribution of orders by warehouse. Each slice of the pie represents a different warehouse, identified by unique IDs and colors.
+
+![Pie chart illustrating the distribution of orders by warehouse](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/screenshots/Pie%20chart%20illustrating%20the%20distribution%20of%20orders%20by%20warehouse.png)
+
+• Largest Share: Warehouse ID 3 has the largest share of orders, accounting for 22.01% of the total, as indicated by the light purple slice. 
+• Second Largest: Warehouse ID 2 follows with 18.01% of orders, represented by the light green slice. 
+• Other Warehouses: The remaining warehouses have smaller percentages of the total orders, each represented by different colors and sizes of slices in the pie chart.
+
+## Task 4. Insights and Recommendations 
 ### Distribution of Orders by Warehouse: 
 
-The data suggests that warehouses ID 3 and ID 2 handle a significant portion of the orders, and 
-strategies could be developed to manage the workload or to increase efficiency in other warehouses.  
+The data suggests that warehouses ID 3 and ID 2 handle a significant portion of the orders, and strategies could be developed to manage the workload or to increase efficiency in other warehouses.  
 
 ### How to Increase Customers Spending on Shopping: 
 
-Customers spending can be increase by offering bundle package with mirror discount on specifically 
-Complementary Products (This means product which are used together to achieve a common purpose). 
+Customers spending can be increase by offering bundle package with mirror discount on specifically Complementary Products (This means product which are used together to achieve a common purpose). 
 
 Example:    
 
-Paint box and paint brush can be sell together by offering some discount in it, so if customer wants to 
-buy paint box, he/she will attract and buy paint brush as well. 
+Paint box and paint brush can be sell together by offering some discount in it, so if customer wants to buy paint box, he/she will attract and buy paint brush as well. 
 
 Some more complementary product are mention below. 
 1. Smartphones and Cases 
@@ -119,21 +223,10 @@ Some more complementary product are mention below.
 
 ### Sales Revenue Over Time: 
 
-The spike on February 3th could be due to a successful marketing campaign, a seasonal event, or other 
-factors that temporarily boosted sales. The subsequent decline suggests that the factors contributing to 
-the spike were short-lived. Understanding the reasons behind such spikes and drops in sales is crucial for 
-making informed business decisions.
+The spike on February 3th could be due to a successful marketing campaign, a seasonal event, or other factors that temporarily boosted sales. The subsequent decline suggests that the factors contributing to the spike were short-lived. Understanding the reasons behind such spikes and drops in sales is crucial for making informed business decisions.
 
 ### Total Revenue by Stores: 
 
-The uniformity in low revenue across all stores as depicted in this graph is unusual and only 1 store took 
-responsibility of major part of revenue is alarming. When each store receive order frequently then 
-revenue will be much higher and workload, inventory will also be organized.
-
-
-
-
-
-
+The uniformity in low revenue across all stores as depicted in this graph is unusual and only 1 store took responsibility of major part of revenue is alarming. When each store receive order frequently then revenue will be much higher and workload, inventory will also be organized.
 
 Read the complete case study, [see here to find it.](https://github.com/Syed-Ammad-99/Bazaar-Launchpad2024-AnalyticsExercise/blob/main/Launchpad%202024%20CASE%20STUDY.pdf)
